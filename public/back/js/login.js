@@ -55,7 +55,7 @@ $(function () {
       success: function (info) {
         if (info.error === 1000) {
           // alert('用户名不存在')
-          $('#form').data('boorstraValidator').updateStatus("username",'INVALID',"callback")
+          $('#form').data('bootstrapValidator').updateStatus("username",'INVALID',"callback")
           return;
         }
         if (info.error === 1001) {
