@@ -19,6 +19,9 @@ $(function () {
             min: 2,
             max: 6,
             message: '用户名长度在2-6之间'
+          },
+          callback: {
+            message: '用户名不存在'
           }
         }
       },
@@ -31,6 +34,9 @@ $(function () {
             min: 6,
             max: 12,
             message: '密码长度在6-12之间'
+          },
+          callback: {
+            message: '密码错误'
           }
         }
       }
@@ -48,11 +54,13 @@ $(function () {
       dataType: "json",
       success: function (info) {
         if (info.error === 1000) {
-          alert('用户名不存在')
+          // alert('用户名不存在')
+          $('#form').data('boorstraValidator').updateStatus(username,'INVALID',callback)
           return;
         }
-        if (info.error === 10001) {
-          alert('密码错误')
+        if (info.error === 1001) {
+          // alert('密码错误')
+          $('#form').data('bootstrapValidator').updateStatus(password,'INCALID',callback)
         }
         if (info.seccess) {
           location.href = 'index.html';

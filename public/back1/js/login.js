@@ -44,7 +44,7 @@ $(function(){
         if(info.error === 1000) {
           alert('用户名错误')
         }
-        if(info.succes ===1001) {
+        if(info.error ===1001) {
           alert('密码错误')
         }
         if(info.success) {
