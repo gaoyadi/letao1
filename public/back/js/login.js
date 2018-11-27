@@ -49,20 +49,20 @@ $(function () {
     e.preventDefault();
     $.ajax({
       type: "post",
-      data: $('#form').rerialize(),
+      data: $('#form').serialize(),
       url: "/employee/employeeLogin",
       dataType: "json",
       success: function (info) {
         if (info.error === 1000) {
           // alert('用户名不存在')
-          $('#form').data('boorstraValidator').updateStatus(username,'INVALID',callback)
+          $('#form').data('boorstraValidator').updateStatus("username",'INVALID',"callback")
           return;
         }
         if (info.error === 1001) {
           // alert('密码错误')
-          $('#form').data('bootstrapValidator').updateStatus(password,'INCALID',callback)
+          $('#form').data('bootstrapValidator').updateStatus("password",'INVALID',"callback")
         }
-        if (info.seccess) {
+        if (info.success) {
           location.href = 'index.html';
         }
       }
