@@ -21,6 +21,9 @@ li {
 .mg_20 {
   margin-top: 20px;
 }
+.red {
+  color: #A94442;
+}
 
 .panel-title {
   height: 40px;
@@ -40,6 +43,7 @@ li {
   top: 0;
   background-color: #222D32;
   z-index: 999;
+  transition: all 1s;
 }
 .aside.hidemenu {
   left: -180px;
@@ -106,6 +110,7 @@ li {
   background-color: #3C8DBC;
   padding-left: 180px;
   z-index: 998px;
+  transition: all 1s;
 }
 .topbar.hidemenu {
   padding-left: 0px;
@@ -123,7 +128,7 @@ li {
   height: 2000px;
   padding-left: 180px;
   padding-top: 50px;
-
+  transition: all 1s;
 }
 main.hidemenu {
   padding-left: 0px;
