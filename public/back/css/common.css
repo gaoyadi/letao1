@@ -138,3 +138,10 @@ li {
 main.hidemenu {
   padding-left: 0px;
 }
+
+
+.echarts_left,
+.echarts_right {
+  width: 48%;
+  height: 400px;
+}
