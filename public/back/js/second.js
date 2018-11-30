@@ -75,7 +75,7 @@ $(function(){
       var picObj = data.result;
 
       var picUrl = picObj.picAddr;
-      $('#imgBox img').attr('src',picturl);
+      $('#imgBox img').attr('src',picUrl);
 
       $('[name="brandLogo"]').val(picUrl);
 
@@ -119,6 +119,34 @@ $(function(){
         }
       }
     }
+  })
+
+  //6 注册表单校验成功事件
+
+  $('#form').on('success.form.bv',function(e){
+
+    e.preventDefault();
+    $.ajax({
+      type: 'post',
+      url: '/category/addSecondCategory',
+      dataType: 'json',
+      data: $('#form').serialize(),
+      success: function(info){
+        console.log(info);
+        if( info.success) {
+          $('#addModal').modal('hide');
+          currentPage = 1;
+          render();
+
+          //重置
+          $('#form').data('bootstrapValidator').resetForm(true);
+
+          // 不是表单元素的重置
+          $('.dropdown-menu').text('请输入一级分类');
+          $('#imgBox img').attr("src",'./images/none.png')
+        }
+      }
+    })
   })
 })
 
